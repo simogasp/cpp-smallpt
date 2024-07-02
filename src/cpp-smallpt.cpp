@@ -134,9 +134,10 @@ namespace smallpt {
 
 		std::unique_ptr< Vector3[] > Ls(new Vector3[w * h]);
 
+        #pragma omp parallel for schedule(static)
 		for (std::size_t y = 0u; y < h; ++y) { // pixel row
 			
-			fprintf(stderr, "\rRendering (%u spp) %5.2f%%", nb_samples * 4, 100.0 * y / (h - 1));
+			//fprintf(stderr, "\rRendering (%u spp) %5.2f%%", nb_samples * 4, 100.0 * y / (h - 1));
 			
 			for (std::size_t x = 0u; x < w; ++x) { // pixel column
 				
