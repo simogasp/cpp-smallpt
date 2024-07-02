@@ -28,13 +28,13 @@ namespace smallpt {
 	}
 
 	[[nodiscard]]
-	constexpr const Vector3 IdealSpecularReflect(const Vector3& d, 
+	constexpr Vector3 IdealSpecularReflect(const Vector3& d,
 												 const Vector3& n) noexcept {
 		return d - 2.0 * n.Dot(d) * n;
 	}
 
 	[[nodiscard]]
-	inline const Vector3 IdealSpecularTransmit(const Vector3& d, 
+	inline const Vector3 IdealSpecularTransmit(const Vector3& d,
 											   const Vector3& n, 
 											   double n_out, 
 											   double n_in, 

@@ -60,47 +60,47 @@ namespace smallpt {
 		}
 
 		[[nodiscard]]
-		constexpr const Vector3 operator-() const noexcept {
+		constexpr Vector3 operator-() const noexcept {
 			return { -m_x, -m_y, -m_z };
 		}
 		
 		[[nodiscard]]
-		constexpr const Vector3 operator+(const Vector3& v) const noexcept {
+		constexpr Vector3 operator+(const Vector3& v) const noexcept {
 			return { m_x + v.m_x, m_y + v.m_y, m_z + v.m_z };
 		}
 		
 		[[nodiscard]]
-		constexpr const Vector3 operator-(const Vector3& v) const noexcept {
+		constexpr Vector3 operator-(const Vector3& v) const noexcept {
 			return { m_x - v.m_x, m_y - v.m_y, m_z - v.m_z };
 		}
 		
 		[[nodiscard]]
-		constexpr const Vector3 operator*(const Vector3& v) const noexcept {
+		constexpr Vector3 operator*(const Vector3& v) const noexcept {
 			return { m_x * v.m_x, m_y * v.m_y, m_z * v.m_z };
 		}
 		
 		[[nodiscard]]
-		constexpr const Vector3 operator/(const Vector3& v) const noexcept {
+		constexpr Vector3 operator/(const Vector3& v) const noexcept {
 			return { m_x / v.m_x, m_y / v.m_y, m_z / v.m_z };
 		}
 		
 		[[nodiscard]]
-		constexpr const Vector3 operator+(double a) const noexcept {
+		constexpr Vector3 operator+(double a) const noexcept {
 			return { m_x + a, m_y + a, m_z + a };
 		}
 		
 		[[nodiscard]]
-		constexpr const Vector3 operator-(double a) const noexcept {
+		constexpr Vector3 operator-(double a) const noexcept {
 			return { m_x - a, m_y - a, m_z - a };
 		}
 		
 		[[nodiscard]]
-		constexpr const Vector3 operator*(double a) const noexcept {
+		constexpr Vector3 operator*(double a) const noexcept {
 			return { m_x * a, m_y * a, m_z * a };
 		}
 		
 		[[nodiscard]]
-		constexpr const Vector3 operator/(double a) const noexcept {
+		constexpr Vector3 operator/(double a) const noexcept {
 			const double inv_a = 1.0 / a;
 			return { m_x * inv_a, m_y * inv_a, m_z * inv_a };
 		}
@@ -168,7 +168,7 @@ namespace smallpt {
 		}
 		
 		[[nodiscard]]
-		constexpr const Vector3 Cross(const Vector3& v) const noexcept {
+		constexpr Vector3 Cross(const Vector3& v) const noexcept {
 			return {
 				m_y * v.m_z - m_z * v.m_y,
 				m_z * v.m_x - m_x * v.m_z,
@@ -221,7 +221,7 @@ namespace smallpt {
 		}
 		
 		[[nodiscard]]
-		double Norm2() const noexcept {
+		constexpr double Norm2() const noexcept {
 			return std::sqrt(Norm2_squared());
 		}
 		
@@ -249,22 +249,22 @@ namespace smallpt {
 	}
 
 	[[nodiscard]]
-	constexpr const Vector3 operator+(double a, const Vector3& v) noexcept {
+	constexpr Vector3 operator+(double a, const Vector3& v) noexcept {
 		return { a + v.m_x, a + v.m_y, a + v.m_z };
 	}
 	
 	[[nodiscard]]
-	constexpr const Vector3 operator-(double a, const Vector3& v) noexcept {
+	constexpr Vector3 operator-(double a, const Vector3& v) noexcept {
 		return { a - v.m_x, a - v.m_y, a - v.m_z };
 	}
 	
 	[[nodiscard]]
-	constexpr const Vector3 operator*(double a, const Vector3& v) noexcept {
+	constexpr Vector3 operator*(double a, const Vector3& v) noexcept {
 		return { a * v.m_x, a * v.m_y, a * v.m_z };
 	}
 	
 	[[nodiscard]]
-	constexpr const Vector3 operator/(double a, const Vector3& v) noexcept {
+	constexpr Vector3 operator/(double a, const Vector3& v) noexcept {
 		return { a / v.m_x, a / v.m_y, a / v.m_z };
 	}
 
@@ -296,7 +296,7 @@ namespace smallpt {
 	}
 	
 	[[nodiscard]]
-	constexpr const Vector3 Min(const Vector3& v1, const Vector3& v2) noexcept {
+	constexpr Vector3 Min(const Vector3& v1, const Vector3& v2) noexcept {
 		return {
 			std::min(v1.m_x, v2.m_x),
 			std::min(v1.m_y, v2.m_y),
@@ -305,7 +305,7 @@ namespace smallpt {
 	}
 	
 	[[nodiscard]]
-	constexpr const Vector3 Max(const Vector3& v1, const Vector3& v2) noexcept {
+	constexpr Vector3 Max(const Vector3& v1, const Vector3& v2) noexcept {
 		return {
 			std::max(v1.m_x, v2.m_x),
 			std::max(v1.m_y, v2.m_y),
@@ -350,7 +350,7 @@ namespace smallpt {
 	}
 	
 	[[nodiscard]]
-	constexpr const Vector3 Clamp(const Vector3& v, 
+	constexpr Vector3 Clamp(const Vector3& v,
 								  double low = 0.0, 
 								  double high = 1.0) noexcept {
 		
@@ -361,7 +361,7 @@ namespace smallpt {
 		;
 	}
 	[[nodiscard]]
-	constexpr const Vector3 Lerp(double a, 
+	constexpr Vector3 Lerp(double a,
 								 const Vector3& v1, 
 								 const Vector3& v2) noexcept {
 
@@ -370,12 +370,12 @@ namespace smallpt {
 	
 	template< std::size_t X, std::size_t Y, std::size_t Z >
 	[[nodiscard]]
-	constexpr const Vector3 Permute(const Vector3& v) noexcept {
+	constexpr Vector3 Permute(const Vector3& v) noexcept {
 		return { v[X], v[Y], v[Z] };
 	}
 	
 	[[nodiscard]]
-	inline const Vector3 Normalize(const Vector3& v) noexcept {
+	inline constexpr Vector3 Normalize(const Vector3& v) noexcept {
 		const double a = 1.0 / v.Norm2();
 		return a * v;
 	}
